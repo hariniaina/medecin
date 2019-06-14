@@ -1,0 +1,40 @@
+
+
+
+
+        <% if Doctor.find_by(user_id: current_user.id) %>
+
+  <% end -%>
+        <% @appoitment.each do |appoitment| %>
+
+<% if  appoitment.doctor_id == @doctor_id.to_i %>
+ <% if appoitment.check %>
+           <%= Patient.find(appoitment.patient_id).firstname %>  <%= Patient.find(appoitment.patient_id).lastname %>
+
+<
+         <%= appoitment.motif %>
+
+          <%= appoitment.duree  %> <span>min</span>
+
+
+
+           <%= appoitment.date %> à <%= appoitment.heure %>
+
+
+
+
+             <% if Doctor.find_by(user_id: current_user.id) %>
+          <%= link_to 'Supprimer', appoitment, method: :delete, data: { confirm: 'Are you sure?' } ,class: "btn btn-danger "%>
+          <% end -%>
+
+               <% end %>
+
+<% end %>
+<% end %>
+
+
+
+
+
+
+

@@ -1,0 +1,33 @@
+<% @patient = Patient.find_by(user_id: @user.id) %>
+  <% if @patient.avatar.attached? %>
+<%= image_tag @patient.avatar.variant(resize: "800x800") %>
+ <% else %>
+ <img src="sary.png">
+ <% end %>
+<p>
+  <strong>Firstname:</strong>
+  <%= @patient.firstname %>
+</p>
+
+<p>
+  <strong>Lastname:</strong>
+  <%= @patient.lastname %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @patient.phone %>
+</p>
+
+<p>
+  <strong>Age:</strong>
+  <%= @patient.age %>
+</p>
+
+<p>
+  <strong>Adresse:</strong>
+  <%= @patient.adresse %>
+</p>
+<p> <%= link_to 'message',
+       conversations_path(sender_id: current_user.id, recipient_id: @patient.id), method: "post"%>
+</p>

@@ -1,0 +1,44 @@
+<body style="background-color: #fff;">
+ <br>
+ <br>
+
+
+
+
+<%= link_to '<--', root_path %>
+
+<div class="container" width="50%"  >
+<div class="card text-center">
+  <div class="card-header">
+    
+  </div>
+  <div class="card-body">
+    <h5 class="card-title"><%= @post.body %></h5>
+    <p class="card-text"><%= image_tag @post.photo.variant(resize: "500x500")  %></p>
+   
+  </div>
+  <div class="card-footer text-muted">
+    <%= form_with model: [@post, @comment], local: true  do |f|%>
+<%= f.text_field :body %>
+<%= f.submit "commenter",class: "btn btn-blue-fill ripple" %>
+<% end -%>
+<div id="comment_pane" >
+<% @comments.each do |comment| %>
+<%= render 'comments/comment', comment: comment  %>
+<% end %>
+</div>
+
+  </div>
+</div>
+</div>
+
+<br>
+<br>
+</body>
+
+
+
+
+
+
+

@@ -1,0 +1,18 @@
+				<h2 class="margin-top">Specialité</h2>
+				<h4 class="light muted">Stomatologue</h4>
+            <% @doctor.each do |doctor|  %>
+            <% if  doctor.specialisation == @stomatologue  %>
+
+					<!-- <img src="img/team/team3.jpg" alt="Team Image" class="avatar"> -->
+<%= image_tag doctor.avatar.variant(resize: "200x200"), class: 'avatar'  %>
+						<div class="title">
+							<h4> <span> Nom: </span> <%= doctor.firstname %> <%= doctor.lastname %></h4>
+							<h5 class="muted regular"> <span> Num: </span>	<%= doctor.phone %>  </h5>
+							<h5 class="muted regular"> <span> Adress exact : </span>	<%= doctor.adresse %> | <%= doctor.lieu %> </h5>
+              <h5 class="muted regular"> <span> Nom de son clinique: </span> <%= doctor.clinique %> </h5>
+						</div>
+						<%= link_to 'profil', profildoctor_path(doctor.user_id), class: "btn btn-blue-fill ripple"  %>
+					</div>
+				</div>
+	            <% end %>
+           <% end %>

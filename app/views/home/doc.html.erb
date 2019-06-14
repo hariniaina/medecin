@@ -1,0 +1,44 @@
+          <li><a href="<%= posts_path %>">Actu</a></li>
+          <li><a href="<%= conversations_path %>">Message</a></li>
+          <li><a href="<%=  accept_path(Doctor.find_by(user_id: current_user.id).id) %>">Valide</a></li>
+<li><a href="<%=  demande_path(Doctor.find_by(user_id: current_user.id).id) %>">Rendez-vous</a></li>
+ <li><a href="<%=  doctor_path(Doctor.find_by(user_id: current_user.id).id) %>">Profil</a></li>
+            <li><%= link_to "Déconnexion" , destroy_user_session_path  , method: :delete %></li>
+                 <li>
+         <% if Doctor.find_by(user_id: current_user.id).avatar.attached? %>
+       
+<%= image_tag (Doctor.find_by(user_id: current_user.id).avatar.variant(resize: "50x50")) %>
+           
+           <% else %>
+           <img src="sary.png">
+           <% end %>
+              <h3 class="light white">Bonjour  Docteur </h3>
+              <h1 class="white typed"><%= Doctor.find_by(user_id: current_user).firstname %>  <%= Doctor.find_by(user_id: current_user).lastname %></h1>
+          <h3 class="white">Vous pouvez encore allez plus loin </h3>
+          <h5 class="light regular light-white"> Sauvez vos patients, Sauvez des vies </h5>
+          <a href="/home/doc" class="btn btn-blue ripple trial-button">ESSAYER GRATUITEMENT
+          (30 jours)</a>
+          <div class="row opening-hours">
+              <p style="text-transform: capitalize;"> Multiplier vos patients en vous abonnant à un compte premium </p>
+               <a href="<%= new_premium_path %>"><div class="btn btn-blue-fill">PREMIUM</div></a>
+
+          </div>
+        </div>
+      </div>
+      <div class="row bottom-footer text-center-mobile">
+        <div class="col-sm-8">
+          <p>&copy; 2019 légalement réservé aux étudiants de <a href="#">Sayna</a> </p>
+        </div>
+        <div class="col-sm-4 text-right text-center-mobile">
+          <ul class="social-footer">
+            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+   
+
+

@@ -1,0 +1,31 @@
+<body style="background-color: #fff;">
+ <br>
+ <br>
+<%= link_to '<--', root_path %>
+    <center><a href="<%=new_post_path %>" class="btn btn-blue ripple trial-button">Nouveau publication</a> </center>
+    <br>
+    <br>
+
+
+
+<% @posts.each do |post| %>
+
+<div class="container" width="50%"  >
+<div class="card text-center">
+  <div class="card-header">
+    Publication
+  </div>
+  <div class="card-body">
+    <h5 class="card-title"><%= post.body %></h5>
+    <p class="card-text"><%= image_tag post.photo.variant(resize: "500x500")  %></p>
+    <%= link_to 'voir', post ,class: "btn btn-blue-fill ripple"%>
+  </div>
+  <div class="card-footer text-muted">
+    <p> <%= pluralize(post.comments.count, "commentaire") %></p>
+  </div>
+</div>
+</div>
+<% end -%>
+<br>
+<br>
+</body>

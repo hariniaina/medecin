@@ -1,0 +1,92 @@
+
+
+
+
+<%= form_with(model: patient, local: true) do |form| %>
+  <% if patient.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(patient.errors.count, "error") %> prohibited this patient from being saved:</h2>
+
+      <ul>
+      <% patient.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<body style="background-color: #d0ebf9">
+
+  <div class="container1" >
+    <div class="form", style="background-color: white;">
+
+      <h1><u><b><font color="#273c75">Patient:</font></b></u></h1>
+
+        <div class="field">
+            <%= form.label :avatar, "Photo de profil" %>
+            <%= form.file_field :avatar %>
+        </div>
+        <form>
+            <div class="field" >
+                <p>  <%= form.label :sexe , "sexe:"  %> </p>
+                <%= form.select :sexe, ['masculin','feminin'], { :include_blank => 'sexe' }, :required => true  %>
+            </div>
+            <div class="form-group" >  
+                <p> <%= form.label :firstname , "Nom:" %>  </p>
+                <div>
+                   <%= form.text_field :firstname, class: 'form-control' %>
+                </div>
+            </div>
+            <div class="form-group" >  
+                <p> <%= form.label :lastname, "Prenom(s):"  %></p>
+                <div>
+                   <%= form.text_field :lastname, class: 'form-control' %>
+                </div>
+            </div>
+            <div class="form-group" >  
+                <p> <%= form.label :phone , "Phone:"  %></p>
+                <div>
+                   <%= form.text_field :phone, class: 'form-control' %>
+                </div>
+            </div>
+            <div class="form-group" >  
+                <p> <%= form.label :age  , "Age:"  %></p>
+                <div>
+                   <%= form.text_field :age , class: 'form-control' %>
+                </div>
+            </div>
+            <div class="form-group" >  
+                <p> <%= form.label :adresse  , "Addresse:"  %></p>
+                <div>
+                   <%= form.text_field :adresse , class: 'form-control' %>
+                </div>
+            </div>
+            <div class="form-group" >  
+                <p> <%= form.label :poids  , "poids: en kg"  %></p>
+                <div>
+                    <%= form.text_field :poids , class: 'form-control' %>
+                </div>
+            </div>
+            <div class="form-group" >  
+                <p> <%= form.label :taille  , "Votre taille: en cm "  %></p>
+                <div>
+                    <%= form.text_field :taille , class: 'form-control' %>
+                </div>
+            </div><br>
+
+            <center><div class="actions">
+                 <%= form.submit :VALIDER , class: 'btn btn-blue-fill'  %>
+            </div>
+            </center>
+        </form>
+    </div>
+     <% end %>
+  </div>
+</body>
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="css/form.css">
+
+<!-- 

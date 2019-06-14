@@ -1,0 +1,36 @@
+
+          <li><a href="<%= posts_path %>">Actu</a></li>
+          <li><a href="<%= conversations_path %>">Message</a></li>
+
+ <li><a href="<%=  patient_path(Patient.find_by(user_id: current_user.id).id) %>">Profil</a></li>
+            <li><%= link_to "Déconnexion" , destroy_user_session_path  , method: :delete %></li>
+                 <li>
+                        <% if Patient.find_by(user_id: current_user.id).avatar.attached? %>
+       
+<%= image_tag (Patient.find_by(user_id: current_user.id).avatar.variant(resize: "50x50")) %>
+           
+           <% else %>
+           <img src="../sary.png">
+           <% end %>
+
+          <h1 class="white typed"><%= Patient.find_by(user_id: current_user).firstname %>  <%= Patient.find_by(user_id: current_user).lastname %></h1>
+
+
+        <a href="<%=  orl_path  %>"><button data-toggle="modal" data-target="#modal1" class="btn btn-blue-fill">O.R.L</button></a> <br><br>
+        <a href="<%=  pediatre_path   %>"><button data-toggle="modal" data-target="#modal1" class="btn btn-blue-fill">Pédiatre</button></a><br>
+        <br>
+        <a href="<%=  dentiste_path  %>"><button data-toggle="modal" data-target="#modal1" class="btn btn-blue-fill">Dentiste</button></a><br>
+        <br>
+        <a href="<%=  neurologue_path  %>"><button data-toggle="modal" data-target="#modal1" class="btn btn-blue-fill">Neurologue</button></a><br>
+
+        <a href="<%=  generaliste_path  %>"><button data-toggle="modal" data-target="#modal1" class="btn btn-blue-fill">Généraliste</button></a><br>
+        <br>
+        <a href="<%=  cardiologue_path  %>"><button data-toggle="modal" data-target="#modal1" class="btn btn-blue-fill">Cardiologue</button></a><br><br>
+        <a href="<%=  gynecologue_path  %>"><button data-toggle="modal" data-target="#modal1" class="btn btn-blue-fill">Gynécologue</button></a><br>
+        <br>
+        <a href="<%=  stomatologue_path  %>"><button data-toggle="modal" data-target="#modal1" class="btn btn-blue-fill">Stomatologue</button></a><br>
+
+        <a href="<%=  sagefemme_path  %>"><button data-toggle="modal" data-target="#modal1" class="btn btn-blue-fill">Sage-femme</button></a><br><br>
+        <a href="<%=  stomatologue_path  %>"><button data-toggle="modal" data-target="#modal1" class="btn btn-blue-fill">Stomatologue</button></a><br><br>
+        <a href="<%=  dermatologue_path  %>"><button data-toggle="modal" data-target="#modal1" class="btn btn-blue-fill">Dermatologue</button></a><br><br>
+        <a href="<%=  kinesitherapeute_path  %>"><button data-toggle="modal" data-target="#modal1" class="btn btn-blue-fill">kinésithérapeute</button></a><br><br>

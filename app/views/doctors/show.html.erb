@@ -1,0 +1,44 @@
+<body style="background-color: #fff;">
+
+<a href="<%= root_path%>"> <button type="button"  class="btn btn-outline-danger">Retour</button></a>
+<div class="container" >
+
+<div class="card text-center">
+  <div class="card-header">
+    <p>
+  <strong>VOTRE PROFIL</strong>
+
+</p>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title"><p>
+ <strong> Nom :  </strong>
+  <%= @doctor.firstname %>
+  <%= @doctor.lastname %>
+</p>
+</h5>
+    <p class="card-text"> <center>
+      <% if Doctor.find_by(user_id: current_user.id).avatar.attached? %>
+<%= image_tag @doctor.avatar.variant(resize: "500x500") %>
+           <% else %>
+           <img src="../sary.png">
+           <% end %></center>
+</p>
+<%= link_to 'Modifier', edit_doctor_path(@doctor), class: "btn btn-sm animated-button victoria-one"  %>
+    
+    <a href="https://twitter.com/Dave_Conner" class="btn btn-5">Hover</a> 
+    <!--End of Button 5 -->
+    
+  </div>
+  <div class="card-footer text-muted">
+    <p>
+  <strong>specialisation :</strong>
+  <%= @doctor.specialisation %>
+|
+  <strong>Adresse:</strong>
+  <%= @doctor.adresse %>
+</p>
+  </div>
+</div>
+</div>
+</div>

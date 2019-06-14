@@ -1,0 +1,49 @@
+<style type="text/css" href = "css/content2.css"></style>
+
+<%= form_with(model: premium, local: true) do |form| %>
+  <% if premium.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(premium.errors.count, "error") %> prohibited this premium from being saved:</h2>
+
+      <ul>
+      <% premium.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+ <body style="background-color: #d0ebf9">
+
+<div class="content2">
+
+        <h1 style="text-align: center;"><b><font color="#273c75">Tarif mensuel: "15000 Ar" </font></b></h1>
+
+  <div class="field" style="text-align: center;">
+    <%= form.label :region %><br>  <br>
+    <%= form.text_field :region %>
+  </div>
+
+  <br>
+
+  <div class="field" style="text-align: center;">
+    <%= form.label :num, "Numeros carte bancaire:" %><br>  <br>
+    <%= form.text_field :num %>
+  </div>
+
+  <br>
+
+  <div class="field" style="text-align: center;">
+    <%= form.label :date, "Date d'expiration:" %><br> <br>
+    <%= form.text_field :date %>
+  </div>
+ <br>
+
+ <div class="actions" style="text-align: center; padding-top: 10px;">
+    <%= form.submit "Envoyer", class:"btn btn-blue-fill" %>
+  </div>
+<br>
+  </div>
+<p style="text-transform: lowercase; text-align: center;">Vos factures seront envoyées par mail </p>
+<% end %>
+</body>

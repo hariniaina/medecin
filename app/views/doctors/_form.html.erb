@@ -1,0 +1,95 @@
+  <link rel="stylesheet" type="text/css" href="css/formgroup.css">
+
+
+<%= form_with(model: doctor, local: true) do |form| %>
+  <% if doctor.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(doctor.errors.count, "error") %> prohibited this doctor from being saved:</h2>
+
+      <ul>
+      <% doctor.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<body style="background-color: #d0ebf9">
+
+
+<div class="container1">
+
+  <div class="formgroup", style="background-color: white;">
+
+      <h1><u><b><font color="#273c75">Docteur:</font></b></u></h1>
+
+  <div class="field">
+    <%= form.label :avatar %>
+    <%= form.file_field :avatar %>
+  </div>
+
+  <form>
+  <div class="field" >
+    <p>  <%= form.label :specialisation, class: 'col-md-6 control-label' %> </p>
+    <%= form.select :specialisation, ['dentiste','generaliste','cardiologue','dermatologue','gynecologue','neurologue','ophtamologue','orl','pediatre','sagefemme','stomatologue'], { :include_blank => 'specialisation' }, :required => true  %>
+  </div><br>
+<div class="form-group" >  
+    <p>  <%= form.label :firstname , "Nom" ,class: 'col-md-6 control-label' %> </p>
+      <div>
+       <%= form.text_field :firstname, class: 'form-control' %>
+    </div>
+</div>
+<div class="form-group" >  
+    <p>  <%= form.label :lastname, "Prenom" ,class: 'col-md-6 control-label' %> </p>
+      <div>
+       <%= form.text_field :lastname, class: 'form-control' %>
+    </div>
+</div>
+<div class="form-group" >  
+    <p>  <%= form.label :age , "age" ,class: 'col-md-6 control-label' %> </p>
+      <div>
+       <%= form.text_field :age, class: 'form-control' %>
+    </div>
+</div>
+<div class="form-group" >  
+    <p>  <%= form.label :phone , "Phone" ,class: 'col-md-6 control-label' %> </p>
+      <div>
+       <%= form.text_field :phone, class: 'form-control' %>
+    </div>
+</div>
+
+<div class="form-group" >  
+    <p>  <%= form.label :adresse  , "adresse" ,class: 'col-md-6 control-label' %> </p>
+      <div>
+       <%= form.text_field :adresse , class: 'form-control' %>
+    </div>
+</div>
+
+<div class="form-group" >  
+    <p>  <%= form.label :lieu , "Lieu de travail" ,class: 'col-md-6 control-label' %> </p>
+      <div>
+       <%= form.text_field :lieu, class: 'form-control' %>
+    </div>
+</div>
+
+<div class="form-group" >  
+    <p>  <%= form.label :clinique , "Nom clinique" ,class: 'col-md-6 control-label' %> </p>
+      <div>
+       <%= form.text_field :clinique, class: 'form-control' %>
+    </div>
+</div>
+
+ <div class="field">
+    <%= form.label :documents, "Documents Légaux" %>
+    <%= form.file_field :documents %>
+  </div><br><br>
+
+<center><div class="actions">
+    <p> <%= form.submit :VALIDER , class: 'btn btn-blue-fill'  %> </p>
+  </div>
+</center>
+</form>
+  </div>
+<% end %>
+</div>
+</body>

@@ -1,0 +1,20 @@
+
+        <% @appoitment.each do |appoitment| %>
+
+<% if  appoitment.doctor_id == @doctor_id.to_i %>
+ <% if !appoitment.check %>
+           <%= Patient.find(appoitment.patient_id).firstname %>  <%= Patient.find(appoitment.patient_id).lastname %>
+         <%= appoitment.motif %>
+ -->
+
+
+          <%= appoitment.duree  %> <span>min</span>
+           <%= appoitment.date %> à <%= appoitment.heure %>
+
+            <%= link_to 'Modifier', edit_appoitment_path(appoitment)  ,class: "btn btn-blue-fill"%> 
+          <%= link_to 'Supprimer', appoitment, method: :delete, data: { confirm: 'Are you sure?' } ,class: "btn btn-danger "%>
+           <%= link_to "Valider", valide_path(app: appoitment), method: :post  ,class: "btn btn-success"%> 
+               <% end %>
+
+<% end %>
+<% end %>

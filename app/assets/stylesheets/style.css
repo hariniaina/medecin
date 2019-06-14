@@ -1,0 +1,69 @@
+#log {
+  font-size: 100px;
+}
+
+
+
+
+#jrs {
+  display:inline-block;
+  overflow:hidden;
+  white-space:nowrap;
+  font-family: chilanka;
+  margin-left: 10px;
+}
+
+#jrs:first-of-type {    /* For increasing performance 
+                       ID/Class should've been used. 
+                       For a small demo 
+                       it's okaish for now */
+  animation: showup 13s infinite;
+}
+
+#jrs:last-of-type {
+  width:0px;
+  animation: reveal 13s infinite;
+}
+
+#jrs:last-of-type span {
+  margin-left:-0px;
+  animation: slidein 13s infinite;
+}
+
+/*.button2{
+  display: inline-block !important; 
+  padding: 5px 2px;
+  background-color: transparent;
+  border: 2px solid blue;
+  position: absolute;
+  color: #fff;
+
+}
+.button3{
+  display: inline-block !important; 
+  padding: 5px 2px;
+  background-color: #e74c3c;
+  border: 2px solid red;
+  position: absolute;
+  margin-left: 47px;
+color: #fff;
+}
+.button4{
+  display: inline-block !important; 
+  padding: 5px 2px;
+  background-color: transparent;
+  border: 2px solid blue;
+  position: absolute;
+  margin-left: 130px;
+color: #fff;
+}
+*/
+
+
+
+
+
+
+
+
+
